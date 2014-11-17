@@ -18,7 +18,8 @@ for my $file ( @files ) {
     my ($re, $check) = split /=====/, $content;
     $re =~ s/\x0a//g;
 
-    App::Regexp::Explain::re_explain( $re );
+    my $string = App::Regexp::Explain::re_explain( $re );
+    is $re, $check, '$re';
 }
 
 done_testing();
